@@ -8,7 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Route;
 
-class Controller extends BaseController
+class HomeController extends BaseController
 {
     const NO_PARAMS=100;
     public $params;
@@ -73,6 +73,11 @@ class Controller extends BaseController
             $arr=['errno'=>0,'data'=>$data];
             echo json_encode($arr);
         }
+
+    }
+    //select
+    function select(){
+
 
     }
 }

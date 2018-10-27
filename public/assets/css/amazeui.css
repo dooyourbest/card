@@ -3,7 +3,7 @@
    Component: Base
  ============================================================================ */
 /**
- * Fix the flawed CSS box model - Yes, IE6's box model is better
+ * Fix the flawed CSS box Model - Yes, IE6's box Model is better
  * Browser support: IE8+
  * via: http://paulirish.com/2012/box-sizing-border-box-ftw/
  */

@@ -55,7 +55,16 @@ class UserController extends Controller
         }
     }
     function test1(){
-      $this->user_session();
+      $a=array(
+          "cardname1"=>'1jiaoyohbao',"cardprice"=>"13",
+          "cardname2"=>'1jiaoyohbao',"cardprice"=>"13",
+          "cardname3"=>'1jiaoyohbao',"cardprice"=>"13",
+          "cardname4"=>'1jiaoyohbao',"cardprice"=>"13",
+          "cardname5"=>'1jiaoyohbao',"cardprice"=>"13",
+          "cardname6"=>'1jiaoyohbao',"cardprice"=>"13",
+      );
+      $funtion_name=$_GET['callback'];
+      echo "$funtion_name".'('.json_encode($a).')';
     }
     function test2(){
         dump($this->user_session()) ;

@@ -16,7 +16,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * The attributes excluded from the Model's JSON form.
      *
      * @var array
      */

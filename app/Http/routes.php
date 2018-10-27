@@ -41,6 +41,10 @@ Route::group(['middleware'=>['web']],function(){
     Route::post('/aip/card',['uses'=>'CardController@card']);
     Route::get('/api/monthdata',['uses'=>'CardController@getMonthDate']);
     Route::get('/api/counthour',['uses'=>'CardController@countByHour']);
+    Route::get('/api/addtodo',['uses'=>'TodoController@add']);
+    Route::get('/api/edittodo',['uses'=>'TodoController@edittodo']);
+    Route::get('/api/getlist',['uses'=>'TodoController@getList']);
+    Route::get('/api/gettodo',['uses'=>'TodoController@gettodo']);
 });
 Route::get('api/list/cardType',['uses'=>'CardController@getcardList']);
 

@@ -6672,7 +6672,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  asNavFor: '',                   // {NEW} Selector: Internal property exposed for turning the slider into a thumbnail navigation for another slider
 
 	  // Carousel Options
-	  itemWidth: 0,                   // {NEW} Integer: Box-model width of individual carousel items, including horizontal borders and padding.
+	  itemWidth: 0,                   // {NEW} Integer: Box-Model width of individual carousel items, including horizontal borders and padding.
 	  itemMargin: 0,                  // {NEW} Integer: Margin between carousel items.
 	  minItems: 1,                    // {NEW} Integer: Minimum number of carousel items that should be visible. Items will resize fluidly when below this.
 	  maxItems: 0,                    // {NEW} Integer: Maxmimum number of carousel items that should be visible. Items will resize fluidly when above this limit.
