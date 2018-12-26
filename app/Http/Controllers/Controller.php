@@ -12,6 +12,7 @@ class Controller extends BaseController
 {
     const NO_PARAMS=100;
     public $params;
+    public $model;
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function __construct(){
         $this->getParam();
@@ -73,6 +74,15 @@ class Controller extends BaseController
             $arr=['errno'=>0,'data'=>$data];
             echo json_encode($arr);
         }
+
+    }
+    public function filterParam($arr,$arrconf){
+        foreach ($arrconf as $row){
+            if (empty($arr[$row])){
+                return false;
+            }
+        }
+        return true;
 
     }
 }

@@ -11,25 +11,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 class DaoTodoBase extends Model{
     public $objDao;
+
+    const STAGE_AWAIT=0; //等待进行
+    const STAGE_RUNNING=1;//进行中
+    const STAGE_FINISHED=2;//已完成
+    const STAGE_STOP=3;//已停止
+    const STAGE_PAUSE=4;//暂停中
+
+    const STATUS_NORMAL=0;
+    const STATUS_DEL=1;
+
+    const PID_DEFAULT=0;
+    const ISCHANGE_DEFAULT=0;
+
     public function __construct(array $attributes = []){
         parent::__construct($attributes);
         $this->objDao=DB::table('todo');
     }
 
-//`id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-//`timestart` int(11) NOT NULL DEFAULT '0' COMMENT '开始时间',
-//`timeend` int(11) NOT NULL COMMENT '结束时间',
-//`title` varchar(64) NOT NULL COMMENT '标题',
-//`note` varchar(256) NOT NULL COMMENT '详细信息',
-//`ctime` int(11) NOT NULL COMMENT '创建时间',
-//`mtime` int(11) NOT NULL COMMENT '改变时间',
-//`use_time` int(11) NOT NULL DEFAULT '0' COMMENT '需要时间',
-//`user_id` int(11) NOT NULL COMMENT '用户id',
-//`level` tinyint(4) NOT NULL COMMENT '优先级',
-//`status` tinyint(4) NOT NULL COMMENT '状态',
-//`pid` int(11) NOT NULL DEFAULT '0' COMMENT '父任务',
-//`is_changed` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否改变过',
-//`stage` tinyint(4) NOT NULL COMMENT '阶段',
+
 
     public function addOne($userid,$timestart,$timeend,$title,$note,$use_time,$tag,$status,$stage,$level=0,$pid=0,$is_change=0){
         $ctime=time();
@@ -79,11 +79,20 @@ class DaoTodoBase extends Model{
         return $this->objDao->where('id',$id)->update($param);
     }
     public function getList($userid){
-        return $this->objDao->where('user_id','=',$userid)->get();
+        return $this->objDao->where('user_id','=',$userid)->where("status",self::STATUS_NORMAL)->get();
     }
     function changeParam(){
         $list=["startTime","endTime","title","note","level","tag","useTime",'id'];
 
+    }
 
+    function getTodoByTime($start, $end){
+        $res= $this->objDao->whereBetween('ctime', [$start, $end])->where("status",self::STATUS_NORMAL)->orderBy('level', 'asc')->get();
+        return $res;
+    }
+
+    function deltodo($id){
+        $arr=array("status"=>self::STATUS_DEL);
+        return $this->objDao->where('id',$id)->update($arr);
     }
 }

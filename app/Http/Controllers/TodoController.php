@@ -23,8 +23,16 @@ class TodoController extends Controller{
         $res = $this->modelTodo->edittodo($this->params);
         $this->success($res) ;
     }
+    public function deleteTodo(){
+        $res = $this->modelTodo->deleteTodo($this->params);
+        $this->success($res) ;
+    }
     function getlist(){
         $this->success($this->modelTodo->getList());
+    }
+    function getToday(){
+        $res = $this->modelTodo ->getTodayTodo();
+        $this->success($res);
     }
 }
 

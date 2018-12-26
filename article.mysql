@@ -1,0 +1,7 @@
+CREATE TABLE `article` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `linkid` int(11) NOT NULL DEFAULT '0' COMMENT '开始时间',
+  `title` varchar(64) NOT NULL COMMENT '标题',
+  `note` varchar(256) NOT NULL COMMENT '详细信息',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='article'

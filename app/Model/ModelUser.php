@@ -18,4 +18,6 @@ class ModelUser{
     public function getUserid(){
         return 1;
     }
+    public function getUserInfo(){
+    }
 }

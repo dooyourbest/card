@@ -3,25 +3,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 class Card extends Model{
-//    public function insertCard($usid,$cactid,$ca_note=''){
-//        $time=time();
-//        $month=date('m');
-//        $day=date('d');
-//        $hour=date('H');
-//        $minute=date('i');
-//        return DB::table('card')->insertGetId(
-//            [
-//                'ca_usid'=>$usid,
-//                'ca_time'=>$time,
-//                'ca_ctid'=>$cactid,
-//                'ca_note'=>$ca_note,
-//                'ca_month'=>$month,
-//                'ca_hour'=>$hour,
-//                'ca_minute'=>$minute,
-//                'ca_day'=>$day,
-//            ]
-//        );
-//    }
     public function insertCard($usid,$cactid,$ca_note=''){
         for($i=1;$i<10;$i++){
             $time=time()+$i*86400+rand(10000,20000);

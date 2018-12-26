@@ -10,11 +10,8 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Dao\DaoTodoBase;
-class ModelTodoBase extends ModelBase{
+class ModelArticle extends ModelBase {
 
-
-    public $daoTodo;
-    public $modelUser;
 
     public function __construct(){
         parent::__construct();
@@ -22,7 +19,7 @@ class ModelTodoBase extends ModelBase{
         $this->modelUser=new ModelUser();
     }
     //add todo
-    public function addTodo($params){
+    public function addarticle($params){
         $userid = $this->modelUser->getUserid();
         $timestart = $params['startTime'];
         $timeend = $params['endTime'];
@@ -41,10 +38,10 @@ class ModelTodoBase extends ModelBase{
         return $this->daoTodo->addOne($userid, $timestart, $timeend, $title, $note, $usetime,$tag,self::STATUS_NORMAL,self::STAGE_AWAIT,$level,self::PID_DEFAULT,self::ISCHANGE_DEFAULT );
     }
 
-    public function changeTodo(){
+    public function changeArticle(){
         $this->daoTodo->update();
     }
-    public function getTodo($params){
+    public function getArticle($params){
         if(isset($params['id'])){
             return  $this->daoTodo->getTodoByid($params['id']);
         }
@@ -62,18 +59,7 @@ class ModelTodoBase extends ModelBase{
         $userid=$this->modelUser->getUserid();
         return $this->daoTodo->getList($userid);
     }
-    public function delTodo($id){
-
-    }
-    public function getTodayTodo(){
-        $startTime = strtotime(date("Y-m-d",time()));
-        $endTime =$startTime + 86400;
-        return $this->daoTodo->getTodoByTime($startTime, $endTime);
-    }
-
-    public function deleteTodo(){
-        if(isset($this->params['id'])){
-            return  $this->daoTodo->deltodo($this->params['id']);
-        }
-    }
+//    public function getList(){
+//        return $this->daoTodo->
+//    }
 }
