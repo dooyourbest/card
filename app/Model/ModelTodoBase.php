@@ -38,7 +38,7 @@ class ModelTodoBase extends ModelBase{
         if(empty($tag)){
             $tag='';
         }
-        return $this->daoTodo->addOne($userid, $timestart, $timeend, $title, $note, $usetime,$tag,self::STATUS_NORMAL,self::STAGE_AWAIT,$level,self::PID_DEFAULT,self::ISCHANGE_DEFAULT );
+        return $this->daoTodo->addOne($userid, $timestart, $timeend, $title, $note, $usetime,$tag,DaoTodoBase::STATUS_NORMAL,DaoTodoBase::STAGE_AWAIT,$level,DaoTodoBase::PID_DEFAULT,DaoTodoBase::ISCHANGE_DEFAULT );
     }
 
     public function changeTodo(){
