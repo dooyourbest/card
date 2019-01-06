@@ -7,17 +7,36 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Route;
+use App\Lib\Utils\Filter;
+use Mockery\Exception;
 
 class Controller extends BaseController
 {
     const NO_PARAMS=100;
     public $params;
     public $model;
+    public $filterParam;
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function __construct(){
-        $this->getParam();
-//        $this->filter();
+        try{
+            $this->getParam();
+            if($this->filterParam){
+                Filter::filterParam($this->filterParam,$this->params);
+            }
+            $this->before();
+        }catch (Exception $e){
+            $this->success($e->getMessage());
+        }
     }
+
+    /**
+     * hook函数
+     */
+    public function before(){
+
+    }
+
+
 
     function verify(){
         $user=$this->user_session();

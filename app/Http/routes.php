@@ -47,6 +47,8 @@ Route::group(['middleware'=>['web']],function(){
     Route::get('/api/gettodo',['uses'=>'TodoController@gettodo']);
     Route::get('/api/gettoday',['uses'=>'TodoController@getToday']);
     Route::get('/api/deleteTodo',['uses'=>'TodoController@deleteTodo']);
+    Route::get('/api/login',['uses'=>'UserController@login']);
+    Route::get('/api/register',['uses'=>'UserController@register']);
 });
 Route::get('api/list/cardType',['uses'=>'CardController@getcardList']);
 

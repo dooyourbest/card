@@ -6,7 +6,7 @@
  * Time: 上午12:38
  */
 
-namespace App\Dao;
+namespace App\utils\Dao;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 class DaoTodoBase extends Model{
@@ -61,7 +61,6 @@ class DaoTodoBase extends Model{
        return  $this->objDao->where('id',intval($id))->first();
     }
     public function edit($param){
-//        var_dump($param);
         $id=$param['id'];
         unset($param['id']);
         $conf=array(

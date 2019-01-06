@@ -1,12 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Account;
 
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class Register extends Controller
 {
@@ -21,17 +18,10 @@ class Register extends Controller
     |
     */
     public function Register(){
-        $param=$this->getParam();
-        if(empty($param["name"])||!empty($param["passwd"])){
 
-        }
     }
 
     public function login(){
-        $param=$this->getParam();
-        if(empty($param["name"])||!empty($param["passwd"])){
-
-        }
     }
 
 }

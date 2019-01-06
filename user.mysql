@@ -1,0 +1,28 @@
+CREATE TABLE `user` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(32) NOT NULL DEFAULT '0' COMMENT '开始时间',
+  `nickname` int(32) NOT NULL COMMENT '结束时间',
+  `passwd` varchar(64) NOT NULL COMMENT '标题',
+  `email` varchar(256) NOT NULL COMMENT '详细信息',
+  `mobile` varchar(12) NOT NULL COMMENT '创建时间',
+  `mtime` int(11) NOT NULL COMMENT DEFAULT '0' '改变时间',
+  `ctime` int(11) NOT NULL DEFAULT '0' COMMENT '需要时间',
+  `status` int(64) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='user'
+
+
+
+CREATE TABLE `user` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `mobile` varchar(32) NOT NULL DEFAULT '0' COMMENT '开始时间',
+  `username` varchar(32) NOT NULL COMMENT '结束时间',
+  `passwd` varchar(32) NOT NULL COMMENT '标题',
+  `email` varchar(64) NOT NULL COMMENT '详细信息',
+  `nickname` varchar(32) NOT NULL COMMENT '创建时间',
+  `mtime` int(11) NOT NULL COMMENT '改变时间',
+  `ctime` int(11) NOT NULL DEFAULT '0' COMMENT '需要时间',
+  `status` tinyint(4) NOT NULL COMMENT '阶段',
+  `openid` varchar(32) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='todolist'

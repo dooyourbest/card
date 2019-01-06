@@ -14933,7 +14933,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /*if (options.errorMessage === 'tooltip') {
 	    this.$tooltip = $('<div></div>', {
 	      'class': 'am-validator-message',
-	      id: UI.utils.generateGUID('am-validator-message')
+	      id: UI.Utils.generateGUID('am-validator-message')
 	    });
 
 	    $(document.body).append(this.$tooltip);
